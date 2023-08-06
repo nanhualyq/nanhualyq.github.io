@@ -1,5 +1,3 @@
-# nanhualyq.github.io
-
-some text for test
+# Index
 
 [first](./first.md)
