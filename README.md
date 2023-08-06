@@ -1,16 +1,8 @@
----
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
----
-
 # Index
 
 [把Nuxt的编译结果装进Electron](./2023/nuxt+electron+github+actions+release.md)
+
+{% site.posts %}
 
 <ul>
   {% for post in site.posts %}
