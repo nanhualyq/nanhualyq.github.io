@@ -1,9 +1,11 @@
-theme: minima
 title: LYQ's BLOG
-description: dev|study
 author:
-  name: LYQ
+  # name: LYQ
   email: nanhualyq@gmail.com
+
+description: dev|study
+
+theme: minima
 
 minima:
   # Minima date format.
