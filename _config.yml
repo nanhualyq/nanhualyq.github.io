@@ -6,9 +6,6 @@ author:
 description: dev|study
 
 remote_theme: jekyll/minima
-plugins:
-  - jekyll-feed
-  - jekyll-remote-theme
 
 minima:
   # Minima date format.
