@@ -24,22 +24,25 @@
     </ul>
 
     <script>
-      var decks = [
-        {
-          name: "Directory Structure",
-          url: "https://jekyllrb.com/docs/structure/",
-          notes: [
-            `config file	_config.yml`,
-            `posts dir	_posts`,
-            `unpublished posts dir	_drafts`,
-            `partial code dir	_includes`,
-            `layout templates dir	_layouts`,
-            `diy data dir	_data`,
-            `css dir	_sass`,
-            `generated site dir	_site`,
-          ],
-        },
-      ];
+         var decks = [
+           {
+             name: "Directory Structure",
+             url: "https://jekyllrb.com/docs/structure/",
+             notes: [
+               `config file	_config.yml`,
+               `posts dir	_posts`,
+               `unpublished posts dir	_drafts`,
+               `partial code dir	_includes`,
+               `layout templates dir	_layouts`,
+               `diy data dir	_data`,
+               `css dir	_sass`,
+               `generated site dir	_site`,
+             ],
+           },
+         ];
+
+      var myVar = {{site.data.members | json}}
+      console.log({myVar});
     </script>
   </body>
 </html>
