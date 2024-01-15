@@ -51,7 +51,6 @@
 			/
 			${cardsQueue.length}
 		  </p>
-		  <!-- TODO: keyboard -->
 		  <!-- TODO: style -->
           <button @click="currentIndex--">prev</button>
           <button @click="currentIndex++">next</button>
@@ -96,11 +95,29 @@
             () => cardsQueue.value[currentIndex.value]
           );
 		  watch(currentIndex, () => isFlip.value = false)
+		  function handleKeyup(e) {
+			if (hash.value !== '#card') {
+				return
+			}
+			// console.log(e);
+			if (e.code === 'Space') {
+				if (isFlip.value) {
+					currentIndex.value++
+				} else {
+					isFlip.value = true
+				}
+			} else if (e.code === 'ArrowLeft') {
+				currentIndex.value--
+			} else if (e.code === 'ArrowRight') {
+				currentIndex.value++
+			}
+		  }
           onMounted(() => {
             window.addEventListener("hashchange", (e) => {
               currentIndex.value = 0;
               hash.value = location.hash.replace(/\?.+/, "");
             });
+			window.addEventListener('keyup', handleKeyup)
           });
           return {
             cards,
