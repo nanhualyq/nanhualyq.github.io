@@ -1,6 +1,7 @@
 ---
 # front matter tells Jekyll to process Liquid
 ---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +13,15 @@
     <h1>Jekyll V4.3.3</h1>
     <p>2024-01-15</p>
 
-	<h1>{{ "Hello World!" | downcase }}</h1>
+    <h1>{{ "Hello World!" | downcase }}</h1>
+
+    <ul>
+      {% for member in site.data.members %}
+      <li>
+        <a href="https://github.com/{{ member.github }}"> {{ member.name }} </a>
+      </li>
+      {% endfor %}
+    </ul>
 
     <script>
       var decks = [
@@ -20,14 +29,14 @@
           name: "Directory Structure",
           url: "https://jekyllrb.com/docs/structure/",
           notes: [
-            `配置文件	_config.yml`,
-            `草稿目录	_drafts`,
-            `代码片段目录	_includes`,
-            `布局目录	_layouts`,
-            `帖子目录	_posts`,
-            `自定义数据目录	_data`,
-            `样式片段目录	_sass`,
-            `生成的结果存放目录	_site`
+            `config file	_config.yml`,
+            `posts dir	_posts`,
+            `unpublished posts dir	_drafts`,
+            `partial code dir	_includes`,
+            `layout templates dir	_layouts`,
+            `diy data dir	_data`,
+            `css dir	_sass`,
+            `generated site dir	_site`,
           ],
         },
       ];
