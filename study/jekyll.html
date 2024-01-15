@@ -41,7 +41,7 @@
            },
          ];
 
-      var myVar = '{{site.data.members | json}}'
+      var myVar = {{ site.data.stocks | jsonify }}
       console.log({myVar});
     </script>
   </body>
