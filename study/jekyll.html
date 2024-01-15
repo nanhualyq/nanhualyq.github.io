@@ -61,7 +61,7 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-      var cardsJson = [{"Front":"config file","Back":"_config.yml","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"},{"Front":"posts dir","Back":"_posts","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"},{"Front":"unpublished posts dir","Back":"_drafts","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"},{"Front":"partial code dir","Back":"_includes","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"},{"Front":"layout templates dir","Back":"_layouts","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"},{"Front":"diy data dir","Back":"_data","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"},{"Front":"css dir","Back":"_sass","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"},{"Front":"generated site dir","Back":"_site","Deck":"Directory Structure","Url":"https://jekyllrb.com/docs/structure/"}]
+      var cardsJson = {{ site.data.jekyll | jsonify }}
 	  const { createApp, ref, computed, onMounted, watch } = Vue;
 
       createApp({
