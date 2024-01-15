@@ -1,3 +1,9 @@
-col1	col2
-row1	row12
-row2	row22
+Front	Back	Deck	Url
+config file	_config.yml	Directory Structure	https://jekyllrb.com/docs/structure/
+posts dir	_posts	Directory Structure	https://jekyllrb.com/docs/structure/
+unpublished posts dir	_drafts	Directory Structure	https://jekyllrb.com/docs/structure/
+partial code dir	_includes	Directory Structure	https://jekyllrb.com/docs/structure/
+layout templates dir	_layouts	Directory Structure	https://jekyllrb.com/docs/structure/
+diy data dir	_data	Directory Structure	https://jekyllrb.com/docs/structure/
+css dir	_sass	Directory Structure	https://jekyllrb.com/docs/structure/
+generated site dir	_site	Directory Structure	https://jekyllrb.com/docs/structure/
