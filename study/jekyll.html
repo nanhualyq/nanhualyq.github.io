@@ -8,31 +8,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jekyll FlashCards</title>
+    <style>
+      .deck-name-li {
+        margin-left: 1rem;
+      }
+    </style>
   </head>
   <body>
-    <h1>Jekyll V4.3.3</h1>
-    <p>2024-01-15</p>
+    <div id="app">
+      <h1>
+        <a href="">Jekyll</a>
+      </h1>
+      <p>V4.3.3 2024-01-15</p>
 
+      <ul v-if="hash === ''">
+        <li><a href="#card">All (${cards.length})</a></li>
+        <li v-for="count,deck in decks" class="deck-name-li">
+          <a :href="`#card?deck=${deck}`"> ${deck} (${count}) </a>
+        </li>
+      </ul>
+
+      <div v-if="hash === '#card'">
+        <div v-if="!currentCard">
+          No more cards!
+          <a href="">Return Home</a>
+        </div>
+        <div v-else>
+          ${currentCard.Front}
+		  <br>
+          <button @click="isFlip = true" v-show="!isFlip">Show Answer</button>
+          <div class="back" v-if="isFlip">
+            <hr />
+            ${currentCard.Back}
+          </div>
+          <hr />
+          <button @click="currentIndex--">prev</button>
+          <button @click="currentIndex++">next</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-         var decks = [
-           {
-             name: "Directory Structure",
-             url: "https://jekyllrb.com/docs/structure/",
-             notes: [
-               `config file	_config.yml`,
-               `posts dir	_posts`,
-               `unpublished posts dir	_drafts`,
-               `partial code dir	_includes`,
-               `layout templates dir	_layouts`,
-               `diy data dir	_data`,
-               `css dir	_sass`,
-               `generated site dir	_site`,
-             ],
-           },
-         ];
+      var cardsJson = {{ site.data.jekyll | jsonify }}
+	  const { createApp, ref, computed, onMounted, watch } = Vue;
 
-      var myVar = {{ site.data.jekyll | jsonify }}
-      console.log({myVar});
+      createApp({
+        delimiters: ["${", "}"],
+        setup() {
+          const cards = ref(cardsJson);
+          const hash = ref("");
+          const currentIndex = ref(0);
+          const isFlip = ref(false);
+          const decks = computed(() => {
+            const o = {};
+            for (const row of cards.value) {
+              o[row.Deck] = (o[row.Deck] || 0) + 1;
+            }
+            return o;
+          });
+          const cardsQueue = computed(() => {
+            if (hash.value !== "#card") {
+              return [];
+            }
+            const searchParams = new URLSearchParams(
+              location.hash.replace(/^#[^?]+\?/, "")
+            );
+            return cards.value.filter((row) => {
+              if (searchParams.get("deck")) {
+                return searchParams.get("deck") === row.Deck;
+              }
+              return true;
+            });
+          });
+          const currentCard = computed(
+            () => cardsQueue.value[currentIndex.value]
+          );
+		  watch(currentIndex, () => isFlip.value = false)
+          onMounted(() => {
+            window.addEventListener("hashchange", (e) => {
+              currentIndex.value = 0;
+              hash.value = location.hash.replace(/\?.+/, "");
+            });
+          });
+          return {
+            cards,
+            hash,
+            decks,
+            cardsQueue,
+            currentIndex,
+            currentCard,
+            isFlip,
+          };
+        },
+      }).mount("#app");
     </script>
   </body>
 </html>
