@@ -8,52 +8,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jekyll FlashCards</title>
-    <style>
-      .deck-name-li {
-        margin-left: 1rem;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        a {
+          @apply hover:underline;
+        }
+        button {
+          @apply p-2 border bg-gray-50;
+        }
       }
     </style>
   </head>
   <body>
-    <div id="app">
-      <h1>
-        <a href="">Jekyll</a>
-      </h1>
-      <p>V4.3.3 2024-01-15</p>
+    <div id="app" class="container mx-auto h-full flex flex-col gap-4">
+      <div class="head text-center">
+        <h1 class="text-5xl">
+          <a href="#">Jekyll</a>
+        </h1>
+        <p><a href="/">Return Blog</a></p>
+        <details>
+          <summary>Description</summary>
+          V4.3.3
+          <br />
+          2024-01-15
+        </details>
+      </div>
 
       <ul v-if="hash === ''">
         <li><a href="#card">All (${cards.length})</a></li>
-        <li v-for="count,deck in decks" class="deck-name-li">
+        <li v-for="count,deck in decks" class="deck-name-li ml-4">
           <a :href="`#card?deck=${deck}`"> ${deck} (${count}) </a>
         </li>
       </ul>
 
-      <div v-if="hash === '#card'">
+      <div v-if="hash === '#card'" class="text-center flex-1">
         <div v-if="!currentCard">
           No more cards!
           <a href="">Return Home</a>
         </div>
-        <div v-else>
-          ${currentCard.Front}
-		  <br>
-          <button @click="isFlip = true" v-show="!isFlip">Show Answer</button>
-          <div class="back" v-if="isFlip">
-            <hr />
-            ${currentCard.Back}
+        <div v-else class="h-full flex-1 flex flex-col gap-2">
+          <div class="front flex-1">
+            <div v-html="currentCard.Front"></div>
+            <p class="mt-4 text-gray-500 text-xs">
+              ${currentCard.Deck}
+              <br />
+              <a :href="currentCard.Url">${currentCard.Url}</a>
+            </p>
           </div>
-		  <hr />
-		  <p>
-			${currentCard.Deck}
-			<a :href="currentCard.Url">${currentCard.Url}</a>
-		  </p>
-		  <p>
-			${currentIndex + 1}
-			/
-			${cardsQueue.length}
-		  </p>
-		  <!-- TODO: style -->
-          <button @click="currentIndex--">prev</button>
-          <button @click="currentIndex++">next</button>
+          <div
+            class="back flex-1 border-t"
+            v-if="isFlip"
+            v-html="currentCard.Back"
+          ></div>
+		  <div class="action-bar">
+			<button @click="currentIndex--">prev</button>
+			<span style="margin: 0 1rem">
+			  ${currentIndex + 1} / ${cardsQueue.length}
+			</span>
+			<button @click="currentIndex++">next</button>
+			<button
+			  @click="isFlip = true"
+			  v-show="!isFlip"
+			  class="block w-full bg-blue-500 text-white"
+			>
+			  Show Answer
+			</button>
+		  </div>
         </div>
       </div>
     </div>
@@ -94,30 +115,30 @@
           const currentCard = computed(
             () => cardsQueue.value[currentIndex.value]
           );
-		  watch(currentIndex, () => isFlip.value = false)
-		  function handleKeyup(e) {
-			if (hash.value !== '#card') {
-				return
-			}
-			// console.log(e);
-			if (e.code === 'Space') {
-				if (isFlip.value) {
-					currentIndex.value++
-				} else {
-					isFlip.value = true
-				}
-			} else if (e.code === 'ArrowLeft') {
-				currentIndex.value--
-			} else if (e.code === 'ArrowRight') {
-				currentIndex.value++
-			}
-		  }
+          watch(currentIndex, () => (isFlip.value = false));
+          function handleKeyup(e) {
+            if (hash.value !== "#card") {
+              return;
+            }
+            // console.log(e);
+            if (e.code === "Space") {
+              if (isFlip.value) {
+                currentIndex.value++;
+              } else {
+                isFlip.value = true;
+              }
+            } else if (e.code === "ArrowLeft") {
+              currentIndex.value--;
+            } else if (e.code === "ArrowRight") {
+              currentIndex.value++;
+            }
+          }
           onMounted(() => {
             window.addEventListener("hashchange", (e) => {
               currentIndex.value = 0;
               hash.value = location.hash.replace(/\?.+/, "");
             });
-			window.addEventListener('keyup', handleKeyup)
+            window.addEventListener("keyup", handleKeyup);
           });
           return {
             cards,
