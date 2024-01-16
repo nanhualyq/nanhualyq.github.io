@@ -38,4 +38,6 @@ plugins:
   - jekyll-seo-tag
 
 header_pages:
-  - about.md
+  - study/jekyll.html
+  - jekyll.html
+  - study.md
