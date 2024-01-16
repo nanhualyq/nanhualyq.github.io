@@ -1,1 +1,1 @@
-- <a href="study/jekyll.html">Jekyll</a>
+- <a href="study/jekyll.html" target="_blank">Jekyll</a>
