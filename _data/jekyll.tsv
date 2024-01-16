@@ -7,6 +7,4 @@ layout templates dir	_layouts	Directory Structure	https://jekyllrb.com/docs/stru
 diy data dir	_data	Directory Structure	https://jekyllrb.com/docs/structure/
 css dir	_sass	Directory Structure	https://jekyllrb.com/docs/structure/
 generated site dir	_site	Directory Structure	https://jekyllrb.com/docs/structure/
-"some\n
-Multiple\n
-Lines"	2	3	4
+some<br>Multiple<br>Lines	2	3	4
