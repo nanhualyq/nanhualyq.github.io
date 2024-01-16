@@ -1,14 +1,14 @@
 Front,Back,Deck,Url
-config file,_config.yml,Directory Structure,https://jekyllrb.com/docs/structure/
-posts dir,_posts,Directory Structure,https://jekyllrb.com/docs/structure/
-unpublished posts dir,_drafts,Directory Structure,https://jekyllrb.com/docs/structure/
-partial code dir,_includes,Directory Structure,https://jekyllrb.com/docs/structure/
-layout templates dir,_layouts,Directory Structure,https://jekyllrb.com/docs/structure/
-diy data dir,_data,Directory Structure,https://jekyllrb.com/docs/structure/
-css dir,_sass,Directory Structure,https://jekyllrb.com/docs/structure/
-generated site dir,_site,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the configuration file?,_config.yml,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the articles file?,_posts,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the unpublished posts file?,_drafts,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the portion code file?,_includes,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the layouts file?,_layouts,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the user-defined data file?,_data,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the style file?,_sass,Directory Structure,https://jekyllrb.com/docs/structure/
+Where to put the generated file?,_site,Directory Structure,https://jekyllrb.com/docs/structure/
 What is it?,a YAML block,Front Matter ,https://jekyllrb.com/docs/front-matter/
-What is the function of...?,set predefined variables,Front Matter ,https://jekyllrb.com/docs/front-matter/
+use for?,set predefined variables,Front Matter ,https://jekyllrb.com/docs/front-matter/
 Where to put?,must be the first thing in the file,Front Matter ,https://jekyllrb.com/docs/front-matter/
 A basic example,"<pre class=""highlight""><code><span class=""nn"">---</span>
 <span class=""na"">layout</span><span class=""pi"">:</span> <span class=""s"">post</span>
@@ -23,9 +23,9 @@ food: Pizza
 &lt;h1&gt;<span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">page</span><span class=""p"">.</span><span class=""nv"">food</span><span class=""w""> </span><span class=""cp"">}}</span>&lt;/h1&gt;
 </code></pre>",Front Matter ,https://jekyllrb.com/docs/front-matter/
 specifies the layout file,layout,Front Matter ,https://jekyllrb.com/docs/front-matter/
-post URL,permalink,Front Matter ,https://jekyllrb.com/docs/front-matter/
-post generated,published,Front Matter ,https://jekyllrb.com/docs/front-matter/
-post time,date,Front Matter ,https://jekyllrb.com/docs/front-matter/
-post category,"category
+set post URL,permalink,Front Matter ,https://jekyllrb.com/docs/front-matter/
+Whether to make public?,published,Front Matter ,https://jekyllrb.com/docs/front-matter/
+set post time,date,Front Matter ,https://jekyllrb.com/docs/front-matter/
+set post category,"category
 categories",Front Matter ,https://jekyllrb.com/docs/front-matter/
-post tag,tags,Front Matter ,https://jekyllrb.com/docs/front-matter/
+set post tag,tags,Front Matter ,https://jekyllrb.com/docs/front-matter/
