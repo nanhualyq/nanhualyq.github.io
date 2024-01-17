@@ -1,2 +1,77 @@
 Front,Back,Deck,Url
-1,2,3,4
+An example of a display variable,"<pre class=""highlight""><code><span class=""p"">{{</span><span class=""w""> </span><span class=""nv"">page</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""p"">}}</span>
+</code></pre>",Basics,https://shopify.github.io/liquid/basics/introduction/
+An example of a tag,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">user</span><span class=""w""> </span><span class=""p"">%}</span>
+  Hello <span class=""p"">{{</span><span class=""w""> </span><span class=""nv"">user</span><span class=""p"">.</span><span class=""nv"">name</span><span class=""w""> </span><span class=""p"">}}</span>!
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Basics,https://shopify.github.io/liquid/basics/introduction/
+An example of a filter,"<pre class=""highlight""><code><span class=""p"">{{</span><span class=""w""> </span><span class=""s2"">""/my/fancy/url""</span><span class=""w""> </span><span class=""p"">|</span><span class=""w""> </span><span class=""nf"">append</span><span class=""p"">:</span><span class=""w""> </span><span class=""s2"">"".html""</span><span class=""w""> </span><span class=""p"">}}</span>
+</code></pre>",Basics,https://shopify.github.io/liquid/basics/introduction/
+equals,"==
+
+<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""Awesome Shoes""</span><span class=""w""> </span><span class=""p"">%}</span>
+  These shoes are awesome!
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Operators,https://shopify.github.io/liquid/basics/operators/
+does not equal,!=,Operators,https://shopify.github.io/liquid/basics/operators/
+greater than,>,Operators,https://shopify.github.io/liquid/basics/operators/
+less than,<,Operators,https://shopify.github.io/liquid/basics/operators/
+greater than or equal to,>=,Operators,https://shopify.github.io/liquid/basics/operators/
+less than or equal to,<=,Operators,https://shopify.github.io/liquid/basics/operators/
+logical or,"or
+
+<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">type</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""Shirt""</span><span class=""w""> </span><span class=""ow"">or</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">type</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""Shoes""</span><span class=""w""> </span><span class=""p"">%}</span>
+  This is a shirt or a pair of shoes.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Operators,https://shopify.github.io/liquid/basics/operators/
+logical and,and,Operators,https://shopify.github.io/liquid/basics/operators/
+contains checks for the presence of a substring inside a string.,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""ow"">contains</span><span class=""w""> </span><span class=""s2"">""Pack""</span><span class=""w""> </span><span class=""p"">%}</span>
+  This product's title contains the word Pack.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Operators,https://shopify.github.io/liquid/basics/operators/
+contains can also check for the presence of a string in an array of strings.,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">tags</span><span class=""w""> </span><span class=""ow"">contains</span><span class=""w""> </span><span class=""s2"">""Hello""</span><span class=""w""> </span><span class=""p"">%}</span>
+  This product has been tagged with ""Hello"".
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Operators,https://shopify.github.io/liquid/basics/operators/
+Which will be considered falsy,"false
+Nil", Truthy and falsy ,https://shopify.github.io/liquid/basics/truthy-and-falsy/
+Which will be considered truthy,"true
+String
+empty string
+integer
+float
+array
+empty array
+page
+EmptyDrop", Truthy and falsy ,https://shopify.github.io/liquid/basics/truthy-and-falsy/
+String,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">my_string</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""s2"">""Hello World!""</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Types,https://shopify.github.io/liquid/basics/types/
+Number,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">my_int</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""mi"">25</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">my_float</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""o"">-</span><span class=""mf"">39.756</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Types,https://shopify.github.io/liquid/basics/types/
+Boolean,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">foo</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""kc"">true</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">bar</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""kc"">false</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Types,https://shopify.github.io/liquid/basics/types/
+Nil,"In the following example, if the user does not exist (that is, user returns nil), Liquid will not print the greeting:
+
+{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+",Types,https://shopify.github.io/liquid/basics/types/
+Array,"<pre class=""highlight""><code>&lt;!-- if site.users = ""Tobi"", ""Laura"", ""Tetsuro"", ""Adam"" --&gt;
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">for</span><span class=""w""> </span><span class=""nv"">user</span><span class=""w""> </span><span class=""nt"">in</span><span class=""w""> </span><span class=""nv"">site.users</span><span class=""w""> </span><span class=""p"">%}</span>
+  <span class=""p"">{{</span><span class=""w""> </span><span class=""nv"">user</span><span class=""w""> </span><span class=""p"">}}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">endfor</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Types,https://shopify.github.io/liquid/basics/types/
+EmptyDrop,"An EmptyDrop object is returned if you try to access a deleted object. In the example below, page_1, page_2 and page_3 are all EmptyDrop objects:
+
+{% assign variable = ""hello"" %}
+{% assign page_1 = pages[variable] %}
+{% assign page_2 = pages[""does-not-exist""] %}
+{% assign page_3 = pages.this-handle-does-not-exist %}
+",Types,https://shopify.github.io/liquid/basics/types/
+"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""s2"">""tomato""</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{{</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""p"">}}</span>
+</code></pre>
+
+How do I avoid a blank line in the first output?","{{-, -}}, {%-, -%}",Whitespace control,https://shopify.github.io/liquid/basics/whitespace/
