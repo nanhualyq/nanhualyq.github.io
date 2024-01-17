@@ -126,3 +126,46 @@ Linking to pages,"<pre><code>{% link _collection/name-of-document.md %}
 Linking to posts,"<pre><code>{% post_url 2010-07-21-name-of-post %}
 {% post_url /subdir/2010-07-21-name-of-post %}
 [Name of Link]({% post_url 2010-07-21-name-of-post %})</code></pre>",Liquid tags,https://jekyllrb.com/docs/liquid/tags/
+The current time (when you run the jekyll command).,site.time,Variables,https://jekyllrb.com/docs/variables/
+A list of all Pages.,site.pages,Variables,https://jekyllrb.com/docs/variables/
+A reverse chronological list of all Posts.,site.posts,Variables,https://jekyllrb.com/docs/variables/
+a list of up to ten related Posts. ,site.related_posts,Variables,https://jekyllrb.com/docs/variables/
+A list of all static files (i.e. files not processed by Jekyll's converters or the Liquid renderer). ,site.static_files,Variables,https://jekyllrb.com/docs/variables/
+A subset of site.pages listing those which end in .html.,site.html_pages,Variables,https://jekyllrb.com/docs/variables/
+A subset of site.static_files listing those which end in .html.,site.html_files,Variables,https://jekyllrb.com/docs/variables/
+A list of all the collections (including posts).,site.collections,Variables,https://jekyllrb.com/docs/variables/
+A list containing the data loaded from the YAML files located in the _data directory.,site.data,Variables,https://jekyllrb.com/docs/variables/
+A list of all the documents in every collection.,site.documents,Variables,https://jekyllrb.com/docs/variables/
+The list of all Posts in category CATEGORY.,site.categories.CATEGORY,Variables,https://jekyllrb.com/docs/variables/
+The list of all Posts with tag TAG.,site.tags.TAG,Variables,https://jekyllrb.com/docs/variables/
+Contains the url of your site as it is configured in the _config.yml. ,site.url,Variables,https://jekyllrb.com/docs/variables/
+All the variables set via the command line and your _config.yml are available through the site variable.,site.[CONFIGURATION_DATA],Variables,https://jekyllrb.com/docs/variables/
+"The content of the Page, rendered or un-rendered depending upon what Liquid is being processed and what page is.",page.content,Variables,https://jekyllrb.com/docs/variables/
+The title of the Page.,page.title,Variables,https://jekyllrb.com/docs/variables/
+The un-rendered excerpt of a document.,page.excerpt,Variables,https://jekyllrb.com/docs/variables/
+"The URL of the Post without the domain, but with a leading slash, e.g. /2008/12/14/my-post.html",page.url,Variables,https://jekyllrb.com/docs/variables/
+The Date assigned to the Post. This can be overridden in a Post’s front matter,page.date,Variables,https://jekyllrb.com/docs/variables/
+An identifier unique to a document in a Collection or a Post (useful in RSS feeds). e.g. /2008/12/14/my-post/my-collection/my-document,page.id,Variables,https://jekyllrb.com/docs/variables/
+The list of categories to which this post belongs. ,page.categories,Variables,https://jekyllrb.com/docs/variables/
+The label of the collection to which this document belongs.,page.collection,Variables,https://jekyllrb.com/docs/variables/
+The list of tags to which this post belongs. These can be specified in the front matter.,page.tags,Variables,https://jekyllrb.com/docs/variables/
+"The path between the source directory and the file of the post or page, e.g. /pages/. ",page.dir,Variables,https://jekyllrb.com/docs/variables/
+"The filename of the post or page, e.g. about.md",page.name,Variables,https://jekyllrb.com/docs/variables/
+The path to the raw post or page. Example usage: Linking back to the page or post’s source on GitHub. This can be overridden in the front matter.,page.path,Variables,https://jekyllrb.com/docs/variables/
+The next post relative to the position of the current post in site.posts. Returns nil for the last entry.,page.next,Variables,https://jekyllrb.com/docs/variables/
+The previous post relative to the position of the current post in site.posts. Returns nil for the first entry.,page.previous,Variables,https://jekyllrb.com/docs/variables/
+Absolute path to the theme-gem.,theme.root,Variables,https://jekyllrb.com/docs/variables/
+Comma separated string composed of the authors of the theme-gem.,theme.authors,Variables,https://jekyllrb.com/docs/variables/
+Description or summary of the theme-gem as specified in the theme gemspec.,theme.description,Variables,https://jekyllrb.com/docs/variables/
+The version string of current theme.,theme.version,Variables,https://jekyllrb.com/docs/variables/
+List of runtime dependencies of the theme.,theme.dependencies,Variables,https://jekyllrb.com/docs/variables/
+A mapping of key-value pairs as defined in the theme gemspec.,theme.metadata,Variables,https://jekyllrb.com/docs/variables/
+The number of the current page,paginator.page,Variables,https://jekyllrb.com/docs/variables/
+Number of posts per page,paginator.per_page,Variables,https://jekyllrb.com/docs/variables/
+Posts available for the current page,paginator.posts,Variables,https://jekyllrb.com/docs/variables/
+Total number of posts,paginator.total_posts,Variables,https://jekyllrb.com/docs/variables/
+Total number of pages,paginator.total_pages,Variables,https://jekyllrb.com/docs/variables/
+"The number of the previous page, or nil if no previous page exists",paginator.previous_page,Variables,https://jekyllrb.com/docs/variables/
+"The path to the previous page, or nil if no previous page exists",paginator.previous_page_path,Variables,https://jekyllrb.com/docs/variables/
+"The number of the next page, or nil if no subsequent page exists",paginator.next_page,Variables,https://jekyllrb.com/docs/variables/
+"The path to the next page, or nil if no subsequent page exists",paginator.next_page_path,Variables,https://jekyllrb.com/docs/variables/
