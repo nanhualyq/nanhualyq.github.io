@@ -82,7 +82,7 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
-         var cardsJson = {{ site.data[{{dataFile}}] | jsonify }}
+         var cardsJson = {{ site.data[page.data_file] | jsonify }}
       const { createApp, ref, computed, onMounted, watch } = Vue;
 
          createApp({
