@@ -3,5 +3,5 @@
 - [Liquid]({% link study/liquid.html %})
 
 {% for page in site.html_pages %}
-{{ post.url }}
+{{ page.url }}
 {% endfor %}
