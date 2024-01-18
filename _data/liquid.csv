@@ -75,3 +75,41 @@ EmptyDrop,"An EmptyDrop object is returned if you try to access a deleted object
 </code></pre>
 
 How do I avoid a blank line in the first output?","{{-, -}}, {%-, -%}",Whitespace control,https://shopify.github.io/liquid/basics/whitespace/
+An example of if,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""Awesome Shoes""</span><span class=""w""> </span><span class=""p"">%}</span>
+  These shoes are awesome!
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Control flow,https://shopify.github.io/liquid/tags/control-flow/
+An example of unless,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">unless</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""Awesome Shoes""</span><span class=""w""> </span><span class=""p"">%}</span>
+  These shoes are not awesome.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endunless</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Control flow,https://shopify.github.io/liquid/tags/control-flow/
+"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">unless</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""Awesome Shoes""</span><span class=""w""> </span><span class=""p"">%}</span>
+  These shoes are not awesome.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endunless</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>
+
+How is work?","equivalent
+
+<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">product</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""o"">!=</span><span class=""w""> </span><span class=""s2"">""Awesome Shoes""</span><span class=""w""> </span><span class=""p"">%}</span>
+  These shoes are not awesome.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Control flow,https://shopify.github.io/liquid/tags/control-flow/
+An example of elsif/else,"<pre class=""highlight""><code>&lt;!-- If customer.name = ""anonymous"" --&gt;
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">customer</span><span class=""p"">.</span><span class=""nv"">name</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""kevin""</span><span class=""w""> </span><span class=""p"">%}</span>
+  Hey Kevin!
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">elsif</span><span class=""w""> </span><span class=""nv"">customer</span><span class=""p"">.</span><span class=""nv"">name</span><span class=""w""> </span><span class=""o"">==</span><span class=""w""> </span><span class=""s2"">""anonymous""</span><span class=""w""> </span><span class=""p"">%}</span>
+  Hey Anonymous!
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">else</span><span class=""w""> </span><span class=""p"">%}</span>
+  Hi Stranger!
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Control flow,https://shopify.github.io/liquid/tags/control-flow/
+An example of case/when,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">handle</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""s2"">""cake""</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">case</span><span class=""w""> </span><span class=""nv"">handle</span><span class=""w""> </span><span class=""p"">%}</span>
+  <span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">when</span><span class=""w""> </span><span class=""s2"">""cake""</span><span class=""w""> </span><span class=""p"">%}</span>
+     This is a cake
+  <span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">when</span><span class=""w""> </span><span class=""s2"">""cookie""</span><span class=""err"">,</span><span class=""w""> </span><span class=""s2"">""biscuit""</span><span class=""w""> </span><span class=""p"">%}</span>
+     This is a cookie
+  <span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">else</span><span class=""w""> </span><span class=""p"">%}</span>
+     This is not a cake nor a cookie
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endcase</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Control flow,https://shopify.github.io/liquid/tags/control-flow/
