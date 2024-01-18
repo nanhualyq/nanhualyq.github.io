@@ -169,3 +169,38 @@ Total number of pages,paginator.total_pages,Variables,https://jekyllrb.com/docs/
 "The path to the previous page, or nil if no previous page exists",paginator.previous_page_path,Variables,https://jekyllrb.com/docs/variables/
 "The number of the next page, or nil if no subsequent page exists",paginator.next_page,Variables,https://jekyllrb.com/docs/variables/
 "The path to the next page, or nil if no subsequent page exists",paginator.next_page_path,Variables,https://jekyllrb.com/docs/variables/
+How to introduce a code snippet file,{% include footer.html %},Includes,https://jekyllrb.com/docs/includes/
+"{% include footer.html %}
+
+footer.html Where to read and parse from",_includes,Includes,https://jekyllrb.com/docs/includes/
+"{% include_relative somedir/footer.html %}
+
+Where to read and parse from",Position relative to the current file,Includes,https://jekyllrb.com/docs/includes/
+How to get the file name from the variable,{% include {{ page.my_variable }} %},Includes,https://jekyllrb.com/docs/includes/
+"{% include note.html content=""This is my sample note."" %}
+
+content What's the point?",Its content replaces the {{ include.content }} section in note.html,Includes,https://jekyllrb.com/docs/includes/
+"{% include image.html url=""http://jekyllrb.com""
+max-width=""200px"" file=""logo.png"" alt=""Jekyll logo""
+caption=""This is the Jekyll logo."" %}
+
+How are incoming multiple parameters received?","are obtained from {{ include }}
+
+<pre><code>
+<figure>
+   <a href=""{{ include.url }}"">
+   <img src=""{{ include.file }}"" style=""max-width: {{ include.max-width }};""
+      alt=""{{ include.alt }}""/>
+   </a>
+   <figcaption>{{ include.caption }}</figcaption>
+</figure></code></pre>",Includes,https://jekyllrb.com/docs/includes/
+"{% include note.html content=""The latest version of {{ site.product_name }} is now available."" %}
+
+What if the parameters passed contain variables?","use capture
+
+<pre><code>
+{% capture download_note %}
+The latest version of {{ site.product_name }} is now available.
+{% endcapture %}
+
+{% include note.html content=download_note %}</code></pre>",Includes,https://jekyllrb.com/docs/includes/
