@@ -3,5 +3,5 @@
 - [Liquid]({% link study/liquid.html %})
 
 {% for html in site.html_pages %}
-	- [{{ html.title }}]({% link {{ html.path }} %})
+	- <a href="{{ html.path }}">{{ html.title }}</a>
 {% endfor %}
