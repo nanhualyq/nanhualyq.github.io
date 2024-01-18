@@ -1,4 +1,4 @@
-# Study
+<!-- # Study -->
 
 {% for html in site.html_pages %}
 {% if html.path contains "study/" %}
