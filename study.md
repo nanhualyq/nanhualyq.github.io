@@ -4,8 +4,4 @@
 
 {% for page in site.html_pages %}
 {{ page | jsonify }}
-
-{% if page.path contains "study/" %}
-- [Jekyll]({% link {{page.path}} %})
-{% endif %}
 {% endfor %}
