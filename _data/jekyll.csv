@@ -187,13 +187,13 @@ caption=""This is the Jekyll logo."" %}
 How are incoming multiple parameters received?","are obtained from {{ include }}
 
 <pre><code>
-<figure>
-   <a href=""{{ include.url }}"">
-   <img src=""{{ include.file }}"" style=""max-width: {{ include.max-width }};""
+<&zwj;figure>
+   <&zwj;a href=""{{ include.url }}"">
+   <&zwj;img src=""{{ include.file }}"" style=""max-width: {{ include.max-width }};""
       alt=""{{ include.alt }}""/>
-   </a>
-   <figcaption>{{ include.caption }}</figcaption>
-</figure></code></pre>",Includes,https://jekyllrb.com/docs/includes/
+   <&zwj;/a>
+   <&zwj;figcaption>{{ include.caption }}<&zwj;/figcaption>
+<&zwj;/figure></code></pre>",Includes,https://jekyllrb.com/docs/includes/
 "{% include note.html content=""The latest version of {{ site.product_name }} is now available."" %}
 
 What if the parameters passed contain variables?","use capture
