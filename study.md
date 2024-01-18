@@ -1,3 +1,6 @@
+---
+# nothing
+---
 <!-- # Study -->
 
 {% for html in site.html_pages %}

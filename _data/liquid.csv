@@ -113,3 +113,38 @@ An example of case/when,"<pre class=""highlight""><code><span class=""p"">{%</sp
      This is not a cake nor a cookie
 <span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endcase</span><span class=""w""> </span><span class=""p"">%}</span>
 </code></pre>",Control flow,https://shopify.github.io/liquid/tags/control-flow/
+An example of assign,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""kc"">false</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""o"">!=</span><span class=""w""> </span><span class=""kc"">true</span><span class=""w""> </span><span class=""p"">%}</span>
+  This statement is valid.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Variable,https://shopify.github.io/liquid/tags/variable/
+An example of capture,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""kc"">false</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""o"">!=</span><span class=""w""> </span><span class=""kc"">true</span><span class=""w""> </span><span class=""p"">%}</span>
+  This statement is valid.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>",Variable,https://shopify.github.io/liquid/tags/variable/
+"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">assign</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""o"">=</span><span class=""w""> </span><span class=""kc"">false</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">if</span><span class=""w""> </span><span class=""nv"">my_variable</span><span class=""w""> </span><span class=""o"">!=</span><span class=""w""> </span><span class=""kc"">true</span><span class=""w""> </span><span class=""p"">%}</span>
+  This statement is valid.
+<span class=""p"">{%</span><span class=""w""> </span><span class=""kr"">endif</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>
+
+How is capture works?",Captures the string inside of the opening and closing tags and assigns it to a variable. Variables created using capture are stored as strings.,Variable,https://shopify.github.io/liquid/tags/variable/
+An example of increment,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">increment</span><span class=""w""> </span><span class=""nv"">my_counter</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">increment</span><span class=""w""> </span><span class=""nv"">my_counter</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">increment</span><span class=""w""> </span><span class=""nv"">my_counter</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>
+
+Output
+0
+1
+2",Variable,https://shopify.github.io/liquid/tags/variable/
+An example of decrement,"<pre class=""highlight""><code><span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">decrement</span><span class=""w""> </span><span class=""nv"">variable</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">decrement</span><span class=""w""> </span><span class=""nv"">variable</span><span class=""w""> </span><span class=""p"">%}</span>
+<span class=""p"">{%</span><span class=""w""> </span><span class=""nt"">decrement</span><span class=""w""> </span><span class=""nv"">variable</span><span class=""w""> </span><span class=""p"">%}</span>
+</code></pre>
+
+Output
+-1
+-2
+-3",Variable,https://shopify.github.io/liquid/tags/variable/
