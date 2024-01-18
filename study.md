@@ -3,5 +3,9 @@
 - [Liquid]({% link study/liquid.html %})
 
 {% for page in site.html_pages %}
-{{ page.url }}
+{{ page | jsonify }}
+
+{% if page.path contais "study/" %}
+- [Jekyll]({% link {{page.path}} %})
+{% endif %}
 {% endfor %}
