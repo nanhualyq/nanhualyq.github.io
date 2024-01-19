@@ -204,3 +204,46 @@ The latest version of {{ site.product_name }} is now available.
 {% endcapture %}
 
 {% include note.html content=download_note %}</code></pre>",Includes,https://jekyllrb.com/docs/includes/
+An example of a layout file,"<pre class=""highlight""><code>&lt;!doctype html&gt;
+&lt;html lang=""en""&gt;
+  &lt;head&gt;
+    &lt;meta charset=""utf-8""&gt;
+    &lt;title&gt;<span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">page</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""cp"">}}</span>&lt;/title&gt;
+    &lt;link rel=""stylesheet"" href=""/css/style.css""&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;nav&gt;
+      &lt;a href=""/""&gt;Home&lt;/a&gt;
+      &lt;a href=""/blog/""&gt;Blog&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;h1&gt;<span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">page</span><span class=""p"">.</span><span class=""nv"">title</span><span class=""w""> </span><span class=""cp"">}}</span>&lt;/h1&gt;
+    &lt;section&gt;
+      <span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">content</span><span class=""w""> </span><span class=""cp"">}}</span>
+    &lt;/section&gt;
+    &lt;footer&gt;
+      &amp;copy; to me
+    &lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>",Layouts,https://jekyllrb.com/docs/layouts/
+How to apply a layout,"<pre class=""highlight""><code><span class=""nn"">---</span>
+<span class=""na"">title</span><span class=""pi"">:</span> <span class=""s"">My First Page</span>
+<span class=""na"">layout</span><span class=""pi"">:</span> <span class=""s"">default</span>
+<span class=""nn"">---</span>
+
+This is the content of my page
+</code></pre>",Layouts,https://jekyllrb.com/docs/layouts/
+How to extend a layout,"<pre class=""highlight""><code>---
+layout: default
+---
+&lt;p&gt;<span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">page</span><span class=""p"">.</span><span class=""nv"">date</span><span class=""w""> </span><span class=""cp"">}}</span> - Written by <span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">page</span><span class=""p"">.</span><span class=""nv"">author</span><span class=""w""> </span><span class=""cp"">}}</span>&lt;/p&gt;
+
+<span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">content</span><span class=""w""> </span><span class=""cp"">}}</span>
+</code></pre>",Layouts,https://jekyllrb.com/docs/layouts/
+How to access a variable from layout,"<pre class=""highlight""><code>---
+city: San Francisco
+---
+&lt;p&gt;<span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">layout</span><span class=""p"">.</span><span class=""nv"">city</span><span class=""w""> </span><span class=""cp"">}}</span>&lt;/p&gt;
+
+<span class=""cp"">{{</span><span class=""w""> </span><span class=""nv"">content</span><span class=""w""> </span><span class=""cp"">}}</span>
+</code></pre>",Layouts,https://jekyllrb.com/docs/layouts/
