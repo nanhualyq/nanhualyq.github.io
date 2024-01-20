@@ -37,7 +37,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-header_pages:
+# header_pages:
   # - study.md
 
 google_analytics: G-9427K0ZVKK
