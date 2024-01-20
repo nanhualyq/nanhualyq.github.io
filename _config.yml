@@ -38,6 +38,6 @@ plugins:
   - jekyll-seo-tag
 
 header_pages:
-  - study.md
+  # - study.md
 
 google_analytics: G-9427K0ZVKK
