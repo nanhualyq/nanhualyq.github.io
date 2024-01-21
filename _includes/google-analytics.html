@@ -11,7 +11,7 @@
   gtag("js", new Date());
 
   gtag("config", "{{ site.google_analytics }}", {
-    cookie_domain: ".nanhualyq.github.io",
+    cookie_domain: location.host,
     cookie_flags: "SameSite=None;Secure",
   });
 </script>
