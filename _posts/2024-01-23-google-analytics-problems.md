@@ -1,6 +1,6 @@
 ---
 title: 解决 Google Analytics（谷歌统计）无数据问题的经历
-published: false
+# published: false
 ---
 
 ## 背景
@@ -8,7 +8,7 @@ published: false
 虽然这个博客内容又水又少，数据肯定是一片0无疑了，但还是怀着好奇，勇于直面惨淡。
 
 ## 开始
-这个博客用的主题是 [minima](https://jekyll.github.io/minima/)，在文档中找到了开启谷歌统计的方式（https://github.com/jekyll/minima#enabling-google-analytics），其实就是在 _config.yml 中加入下面这样一行即可：
+这个博客用的主题是 [minima](https://jekyll.github.io/minima/)，在文档中找到了[开启谷歌统计的方式](https://github.com/jekyll/minima#enabling-google-analytics)，其实就是在 _config.yml 中加入下面这样一行即可：
 ```yaml
 google_analytics: UA-NNNNNNNN-N
 ```
@@ -40,7 +40,7 @@ https://github.com/jekyll/minima/blob/4032b2258a9f3e823c54f8364672261b4b8dc69f/_
 Loading failed for the <script> with source “https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX”.
 ```
 
-居然没能成功加载js文件，抬头一看浏览器插件 AdBlocker 上面显示这已屏蔽的广告数量，恍然大悟，赶紧关掉插件，再刷新网页，控制台就看不到这个警告了。
+居然没能成功加载js文件，抬头一看浏览器插件 AdBlocker 上面显示着已屏蔽的广告数量，恍然大悟，赶紧关掉插件，再刷新网页，控制台就看不到这个警告了。
 
 PS：有点好奇广告插件为什么要屏蔽统计脚本，这并不会渲染什么广告啊。
 
@@ -54,7 +54,7 @@ Cookie “_ga” has been rejected for invalid domain.
 
 这个是 Firefox 阻止了 cookies 发出去，因为博客的域名和Google统计的域名不一样，跨域了。
 
-然后搜到了方法：https://stackoverflow.com/a/62569420，需要在初始化的代码中增加两项配置，域名改成自己的，标志改成允许跨域。
+然后搜到了[方法](https://stackoverflow.com/a/62569420)，需要在初始化的代码中增加两项配置，域名改成自己的，标志改成允许跨域。
 
 要做到这个，只能用自己的代码覆盖主题源码的这个部分了，新建 _includes/google-analytics.html 文件，代码如下：
 ```html
@@ -76,3 +76,9 @@ Cookie “_ga” has been rejected for invalid domain.
   });
 </script>
 ```
+链接：https://github.com/nanhualyq/nanhualyq.github.io/blob/76afb322b3a8c10e7e1adbcc721c5a24361f512b/_includes/google-analytics.html#L13
+
+## 成功
+解决完上面的阻碍之后，再次刷新页面，控制台没有警告了，打开统计页面，终于看到那个梦寐以求，等了好几天的迟来的1了。
+
+<img width="534" alt="image" src="https://github.com/nanhualyq/nanhualyq.github.io/assets/6212850/0ca8857c-ed8b-4013-bfe1-9043156e5486">
