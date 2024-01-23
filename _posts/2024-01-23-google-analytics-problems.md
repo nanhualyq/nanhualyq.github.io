@@ -1,5 +1,5 @@
 ---
-title: 解决 Google Analytics（谷歌统计）无数据的问题
+title: 解决 Google Analytics（谷歌统计）无数据问题的经历
 published: false
 ---
 
@@ -28,7 +28,7 @@ google_analytics: UA-NNNNNNNN-N
 https://github.com/jekyll/minima/blob/4032b2258a9f3e823c54f8364672261b4b8dc69f/_includes/google-analytics.html
 
 ## 无数据
-引入好之后，就时不时的打开统计页面，数据一直都是0，我知道没人看，但我自己点的总要有个1吧。
+引入好之后，就时不时的打开统计页面，数据一直都是0，我知道没人看，我心里这点 B-tree 还是有的，但我自己点的总要有个1吧。
 
 <img width="534" alt="image" src="https://github.com/nanhualyq/nanhualyq.github.io/assets/6212850/4d7e6ec7-3ec3-4fb0-ba70-b29dd8c4dc89">
 
@@ -44,4 +44,35 @@ Loading failed for the <script> with source “https://www.googletagmanager.com/
 
 PS：有点好奇广告插件为什么要屏蔽统计脚本，这并不会渲染什么广告啊。
 
-## cookie
+## Cookies
+刷新网页后，控制台又冒出一堆黄色的警告，类似这样：
+```
+Some cookies are misusing the recommended “SameSite“ attribute
+Cookie “_ga_XXXXXXXX” has been rejected for invalid domain.
+Cookie “_ga” has been rejected for invalid domain.
+```
+
+这个是 Firefox 阻止了 cookies 发出去，因为博客的域名和Google统计的域名不一样，跨域了。
+
+然后搜到了方法：https://stackoverflow.com/a/62569420，需要在初始化的代码中增加两项配置，域名改成自己的，标志改成允许跨域。
+
+要做到这个，只能用自己的代码覆盖主题源码的这个部分了，新建 _includes/google-analytics.html 文件，代码如下：
+```html
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "{{ site.google_analytics }}", { // 这里就是增加的配置
+    cookie_domain: location.host,
+    cookie_flags: "SameSite=None;Secure",
+  });
+</script>
+```
