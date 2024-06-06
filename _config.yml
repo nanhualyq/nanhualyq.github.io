@@ -38,6 +38,6 @@ plugins:
   - jekyll-seo-tag
 
 header_pages:
-#   - study1.md
+  - games.md
 
 google_analytics: G-9427K0ZVKK
