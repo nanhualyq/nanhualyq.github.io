@@ -66,3 +66,6 @@ title: 提升 Anki 的录入效率
 
 ## 后记
 东西很粗糙，刚好够解决我的这点需求，以后冒出新需求再继续更新，欢迎批评指正。
+
+## 2024-06-06 补充
+刚刚用 Svelte 重写了一版，代码见地址：https://github.com/nanhualyq/quick-menu-svelte
