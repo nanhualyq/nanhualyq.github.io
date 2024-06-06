@@ -1,1 +1,1 @@
-- (贪吃蛇)[/games/snake]
+- [贪吃蛇](/games/snake)
