@@ -4,7 +4,7 @@ title: Games
 
 - [贪吃蛇](/games/snake)
 
-{% assign directories = Dir.glob("_site/*") %}
+{% assign directories = Dir.glob("_site/games/*") %}
 
 <ul>
   {% for directory in directories %}
