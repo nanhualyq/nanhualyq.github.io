@@ -137,6 +137,7 @@ isEatFood(food: Food | undefined) {
     }
 }
 ```
+
 对比食物和蛇头的坐标，如果一样就表示吃到了，然后给蛇加尾巴，让食物重置位置。
 
 ### appendTail()
@@ -144,18 +145,19 @@ isEatFood(food: Food | undefined) {
 ```js
 const [prev, last] = this?.getNodes()?.slice(-2);
 ```
-取出蛇身体的最后两个方块，初始时只有一个头，所以last是undefined
+
+取出蛇身体的最后两个方块，初始时只有一个头，所以 last 是 undefined
 
 ```js
 if (last) {
-    const p1 = prev.getTopLeft();
-    const p2 = last.getTopLeft();
-    x = p2.x - p1.x + p2.x;
-    y = p2.y - p1.y + p2.y;
+  const p1 = prev.getTopLeft();
+  const p2 = last.getTopLeft();
+  x = p2.x - p1.x + p2.x;
+  y = p2.y - p1.y + p2.y;
 }
 ```
-能拿到2个的话，根据他们之间的差，得到新增方块应该出现的坐标
 
+能拿到 2 个的话，根据他们之间的差，得到新增方块应该出现的坐标
 
 ```js
 else if (prev) {
@@ -181,4 +183,97 @@ else if (prev) {
     }
 }
 ```
+
 只拿到一个的话，就要根据当前移动方向来决定新格子的坐标了。
+
+```js
+updateByFrame(nextDirection: string) {
+    count++;
+    if (count === 50 - this.getNodes().length - 1) {
+        count = 0;
+        this.updateDirection(nextDirection);
+        this.moveByDirection();
+    }
+}
+```
+
+这是每一帧都会执行的更新函数，if 负责控制速度，初始化是 50 帧移动一格，蛇的身体越长速度就越快。
+
+```js
+updateDirection(nextDirection: string) {
+    const isDirectionX = ["LEFT", "RIGHT"].includes(this.direction);
+    if (nextDirection === "UP" && isDirectionX) {
+        this.direction = "UP";
+    } else if (nextDirection === "RIGHT" && !isDirectionX) {
+        this.direction = "RIGHT";
+    } else if (nextDirection === "DOWN" && isDirectionX) {
+        this.direction = "DOWN";
+    } else if (nextDirection === "LEFT" && !isDirectionX) {
+        this.direction = "LEFT";
+    }
+}
+```
+
+这个其实很简单，就是把用户按下的方向存起来，下次移动的时候就会用上。
+特别的一点是每个 if 里面的第二个条件，用于确保只在垂直和水平变化时才更新，比如当前正在向右移动，如果按下左方向就会跳过，而按下上或下方向就会生效，这是为了避免原地掉头。
+
+### moveByDirection()
+
+蛇的移动就是这里控制的。
+
+```js
+const children = this.getNodes();
+for (let i = children.length - 1; i > 0; i--) {
+  children[i].x = children[i - 1].x;
+  children[i].y = children[i - 1].y;
+}
+```
+
+遍历蛇的身体，从末尾开始一个一个的移动到前一个的位置，注意 for 的`i>0`，这里跳过了蛇头。
+
+```js
+const head = children[0];
+switch (this.direction) {
+  case "UP":
+    head.y -= this.CELL_SIZE;
+    break;
+  case "DOWN":
+    head.y += this.CELL_SIZE;
+    break;
+  case "LEFT":
+    head.x -= this.CELL_SIZE;
+    break;
+  case "RIGHT":
+    head.x += this.CELL_SIZE;
+    break;
+
+  default:
+    break;
+}
+```
+
+这才是控制蛇头的移动，稍微特殊一点，根据用户按下的最新方向移动。
+
+### isGameOver()
+
+```js
+const isOverflow = x < 0 || y < 0 || x > width || y > height;
+```
+
+判断是否超越了画布边界
+
+```js
+const isCircle = tails.some((item) => item.x === x && item.y === y);
+```
+
+判断是否蛇头和身体重叠了
+
+```js
+if (isOverflow || isCircle) {
+  this.scene.scene.stop("default").start("over", {
+    length: this.getNodes().length,
+  });
+}
+```
+
+满足其中一个条件就跳转到 Game Over 场景，还把蛇长度传过去，用于显示得分。
