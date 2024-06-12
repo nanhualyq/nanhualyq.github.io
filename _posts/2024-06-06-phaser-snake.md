@@ -277,3 +277,40 @@ if (isOverflow || isCircle) {
 ```
 
 满足其中一个条件就跳转到 Game Over 场景，还把蛇长度传过去，用于显示得分。
+
+## 游戏场景
+MainScene
+
+```js
+this.keys = this.input.keyboard?.createCursorKeys();
+if (this.keys?.up.isDown) {
+  this.nextDirection = "UP";
+} else if (this.keys?.right.isDown) {
+  this.nextDirection = "RIGHT";
+} else if (this.keys?.down.isDown) {
+  this.nextDirection = "DOWN";
+} else if (this.keys?.left.isDown) {
+  this.nextDirection = "LEFT";
+}
+```
+根据键盘方向键按下后改变方向
+
+```js
+this.input.on("pointerup", (p: Phaser.Input.Pointer) => {
+  const diffX = p.x - p.downX;
+  const diffY = p.y - p.downY;
+  const gap = 100;
+  if (diffY < -gap) {
+    this.nextDirection = "UP";
+  } else if (diffX > gap) {
+    this.nextDirection = "RIGHT";
+  } else if (diffY > gap) {
+    this.nextDirection = "DOWN";
+  } else if (diffX < -gap) {
+    this.nextDirection = "LEFT";
+  }
+});
+```
+根据触摸手势滑动方向后改变方向
+
+还有游戏结束的场景很简单就不细说了，无非就是显示文本，点击后重新开始游戏。
